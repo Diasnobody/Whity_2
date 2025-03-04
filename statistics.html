@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статистика посещаемости</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Статистика посещаемости</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="announcements.html">Объявления</a></li>
+                    <li><a href="courses.html">Курсы</a></li>
+                    <li><a href="calendar.html">Календарь</a></li>
+                    <li><a href="staff.html">Персонал</a></li>
+                    <li><a href="statistics.html">Статистика</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Статистика посещаемости по курсам</h2>
+            <canvas id="attendanceChart" width="400" height="200"></canvas>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Курсы Повышения Квалификации. Все права защищены.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('attendanceChart').getContext('2d');
+        var attendanceChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Курс 1', 'Курс 2', 'Курс 3'],
+                datasets: [{
+                    label: 'Посещения',
+                    data: [12, 19, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
